@@ -3,5 +3,17 @@ document.getElementById("first-class-increase").addEventListener("click",functio
     const firstClassInput = document.getElementById("first-class-count");
     const firstClassCount = parseInt(firstClassInput.value);
     const firstClassNewCount = firstClassCount +1;
-    firstClassInput.value = firstClassNewCount
+    firstClassInput.value = firstClassNewCount;
+    const firstClassTotal = firstClassNewCount * 150;
+    document.getElementById("first-class-total").innerText ='$' + firstClassTotal;
+})
+
+// Decreasing first class ticket quantity
+document.getElementById("first-class-decrease").addEventListener("click",function(){
+    const firstClassInput = document.getElementById("first-class-count");
+    const firstClassCount = parseInt(firstClassInput.value);
+    const firstClassNewCount = firstClassCount -1;
+    firstClassInput.value = firstClassNewCount;
+    const firstClassTotal = firstClassNewCount * 150;
+    document.getElementById("first-class-total").innerText ='$' + firstClassTotal;
 })
