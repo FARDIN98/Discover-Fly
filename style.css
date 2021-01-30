@@ -126,3 +126,11 @@ nav ul li a:hover, a.active{
     background-color: #fff;
     background: none;
 }
+#confirmation{
+    display: none;
+    position: absolute;
+}
+.new-style{
+    font-size: 30px;
+    position: relative;
+}

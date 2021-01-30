@@ -1,8 +1,7 @@
-
+// Main Function
 function handleTicketChange(ticket,isIncrement){
     const ticketInput = document.getElementById(ticket + "-count");
     const ticketClassCount = parseInt(ticketInput.value);
-    // const firstClassNewCount = firstClassCount -1;
     let ticketNewCount = ticketClassCount;
     if(isIncrement == true){
         ticketNewCount = ticketClassCount +1;
@@ -11,7 +10,6 @@ function handleTicketChange(ticket,isIncrement){
         ticketNewCount = ticketClassCount -1;
     }
     ticketInput.value = ticketNewCount;
-    // const firstClassTotal = ticketClassNewCount * 150;
     let ticketTotal = 0;
     if(ticket == 'first-class'){
         ticketTotal = ticketNewCount * 150;
@@ -23,6 +21,7 @@ function handleTicketChange(ticket,isIncrement){
     calculateTotal();
 }
 
+// Function for counting subtotal,vat,totalPrice
 function calculateTotal(){
     const firstClassCount = getInputValue('first-class');
 
@@ -32,14 +31,36 @@ function calculateTotal(){
     document.getElementById("ticket-total").innerText ='$' + totalTicketPrice;
 
     const vat = Math.round(totalTicketPrice * 0.1);
-    document.getElementById("vat-amount").innerText = vat;
+    document.getElementById("vat-amount").innerText ='$'+ vat;
+
+    const grandAmount = totalTicketPrice + vat;
+    document.getElementById("grand-total").innerText = '$' + grandAmount;
 }
 
+// Function for getInput
 function getInputValue(ticket){
     const ticketInput = document.getElementById(ticket + "-count");
     const ticketClassCount = parseInt(ticketInput.value);
     return ticketClassCount;
 }
+
+//For bonus
+const bookingForm = document.querySelector('.booking-form');
+const bookingContent = document.querySelector('.booking-content');
+const confirmation = document.querySelector('#confirmation');
+
+document.getElementById("booknow").addEventListener("click",function(){
+    bookingForm.style.display = 'none';
+    bookingContent.style.display = 'none';
+    confirmation.style.display = 'block';
+})
+
+
+
+
+
+
+
 
 // function firstClassTicketChange(isIncrement){
 //     const firstClassInput = document.getElementById("first-class-count");
